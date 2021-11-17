@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour
 {
-    //public float speed = 2f;
     Animator anim;
 
     void Start()
@@ -20,21 +19,22 @@ public class BossMovement : MonoBehaviour
 
     void GetController()
     {
-        //Vector3 moveDir = new Vector3();
-        if (Input.GetKey(KeyCode.LeftArrow))
-            anim.SetFloat("Speed", 0.4f);
-        if (Input.GetKey(KeyCode.RightArrow))
-            anim.SetFloat("Speed", 0.4f);
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.D))
+        {
+            anim.SetFloat("Speed", 0.8f);
             anim.SetFloat("yDir", 0.1f);
-        if (Input.GetKey(KeyCode.UpArrow))
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            anim.SetFloat("Speed", 0.4f);
+            anim.SetFloat("yDir", 0.1f);
+        }
+        if (Input.GetKey(KeyCode.S))
+            anim.SetFloat("yDir", -1f);
+        if (Input.GetKey(KeyCode.W))
         {
             anim.SetFloat("yDir", 0.51f);
             anim.SetTrigger("IsJumping");
         }
-            
-        /*transform.position += moveDir.normalized * speed * Time.deltaTime;
-        anim.SetFloat("Speed", moveDir.x);
-        anim.SetFloat("yDir", moveDir.y);*/
     }
 }
